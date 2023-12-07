@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Run pip install to install dependencies
-pip install
+pip install pipenv
+
+pipenv install --dev
+
+pipenv shell
 
 # Apply migrations
 python manage.py migrate
