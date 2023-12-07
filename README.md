@@ -1,6 +1,6 @@
 # Little Lemon
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Little Lemon is a landing page for a restaurant.
 
