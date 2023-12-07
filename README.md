@@ -11,9 +11,7 @@ Little Lemon is a landing page for a restaurant.
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 ## Features
 
@@ -94,4 +92,10 @@ python manage.py runserver
 - Customers can make reservations using the integrated reservation system.
 - Admins can log in to the admin panel to manage reservations, view customer details, and update restaurant information.
 
+## License
+
+This LittleLemon project is licensed under the [MIT License](LICENSE). Feel free to use it for your restaurant business.
+
+
 **Happy coding from LittleLemon! 🍋**
+
