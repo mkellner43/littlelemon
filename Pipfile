@@ -8,6 +8,10 @@ django-datetime-widget = "*"
 django-bootstrap-datepicker-plus = "*"
 bootstrap4 = "*"
 django-bootstrap4 = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 

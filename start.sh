@@ -3,10 +3,11 @@
 # Run pip install to install dependencies
 pip install pipenv
 
-pipenv install --dev
-
 pipenv shell
 
+pipenv install
+
+python manage.py collectstatic --no-inputx
 # Apply migrations
 python manage.py migrate
 
