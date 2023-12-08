@@ -93,6 +93,8 @@ DATABASES = {
         conn_max_age=600
     )
 }
+database_url = os.environ.get("DATABASE_URL")
+print(f"DATABASE_URL: {database_url}")
 
 # The settings for media files have been updated for the Graded assessment
 MEDIA_URL = '/media/'
