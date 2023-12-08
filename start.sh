@@ -2,5 +2,10 @@
 # exit on error
 set -o errexit
 
-# Run pip install to install dependencies
-pip install pipenv && pipenv shell && pipenv install && python manage.py collectstatic --no-input
+pip install pipenv
+
+export PIPENV_YES=1
+
+pipenv shell
+pipenv install
+python manage.py collectstatic --no-input
