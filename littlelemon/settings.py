@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'littlelemon.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default= os.environ.get("DATABASE_URL"),
+        default= os.environ.get("DATABASE_URL", default="postgres://littlelemonpg:EF6TigY58syX1Jbi2KL8eh1RHJYD4jzn@dpg-clp5lb9oh6hc73btdmgg-a.oregon-postgres.render.com/littlelemonpg"),
         conn_max_age=600
     )
 }
