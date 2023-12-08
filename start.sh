@@ -7,7 +7,7 @@ pipenv shell
 
 pipenv install
 
-python manage.py collectstatic --no-inputx
+python manage.py collectstatic --no-input
 # Apply migrations
 python manage.py migrate
 
