@@ -9,9 +9,10 @@ django-bootstrap-datepicker-plus = "*"
 bootstrap4 = "*"
 django-bootstrap4 = "*"
 dj-database-url = "*"
-psycopg2-binary = "*"
 whitenoise = "*"
 gunicorn = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
