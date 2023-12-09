@@ -16,11 +16,9 @@ from dotenv import load_dotenv
 import dj_database_url
 
 load_dotenv()
-print(os.environ)
 DATABASE_URL = os.environ.get('DATABASE_URL', default='')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -32,18 +30,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='secret')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
-    print(f'allowed host is in env {RENDER_EXTERNAL_HOSTNAME}')
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,9 +90,6 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL', default=''))
 }
 
-# The settings for media files have been updated for the Graded assessment
-MEDIA_URL = '/media/'
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -134,22 +126,13 @@ USE_TZ = True
 
 # The settings for static files have been updated for the Graded assessment
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
 
 # Tell Django to copy statics to the `staticfiles` directory
 # in your application directory on Render.
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Turn on WhiteNoise storage backend that takes care of compressing static files
-# and creating unique names for each version so they can safely be cached forever.
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
